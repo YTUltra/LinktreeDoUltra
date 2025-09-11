@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'fontePadrao';
+    src: url(fonts/Varela_Round/VarelaRound-Regular.ttf);
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+body{
+    margin: 0;
+    background-color: #90ccb4;
+    font-family: fontePadrao;
+    color: white;
+    text-align: center;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    color: white;
+    width: 220px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background-color: transparent;
+    font-family: fontePadrao;
+    font-size: 24px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    transition: 250ms;
+}
+button:hover{
+    scale: 1.1;
+    transition: 250ms;
+}
+details{
+    margin: auto;
+    width: 45%;
+    @media only screen and (max-width: 1336px) {
+        width: 75%;
+    }
+    text-align: left;
+    margin-bottom: 100px;
+    background-color: #a7e1ca;
+    border: solid white 2px;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+.card{
+    align-content: center;
+    padding: 20px 10px;
+    height: 80%;
+    background-color: #a7e1ca;
+    text-align: center;
+    border-radius: 15px;
+    position: relative;
+}
+.card::after, .card::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), rgba(0, 0, 0, 0.1) 50%, white);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 15px;
+    animation: 3s spin linear infinite;
+}
+.card::before{
+    filter: blur(1.5rem);
+    opacity: 0.3;
+}
+.abaSuperior{
+    width: 100%;
+    height: 150px;
+    background-color: #a7e1ca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
