@@ -135,3 +135,16 @@ details{
         width: 80%;
     }
 }
+.dados{
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width: 800px) {
+        flex-direction: column;
+    }
+}
+.dados div{
+    width: 48%;
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+    }
+}
